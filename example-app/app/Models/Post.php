@@ -34,7 +34,13 @@ class Post{
         });
     }
 
+    //WHEN YOU SIT BACK DOWN, BUILD FIND AND FILDORFAIL FUNCTIONS WITH VIDEO
+
     public static function find($slug){
-        return static::all()->firstWhere('slug', $slug);
+        $post = static::all()->firstWhere('slug', $slug);
+        if(! $post){
+            throw new ModelNotFoundException();
+        }
+        return $post;
     }
 }

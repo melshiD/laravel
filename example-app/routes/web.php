@@ -3,7 +3,6 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
 use Symfony\Component\Translation\Dumper\YamlFileDumper;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', function () {
     return view('posts', [
@@ -15,4 +14,4 @@ Route::get('posts/{post}', function($slug) {
     return view('post', [
         'post' => Post::find($slug)
     ]);
-})->where('post', '[A-z_\-]+');
+});
