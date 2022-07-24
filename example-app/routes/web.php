@@ -6,20 +6,8 @@ use Symfony\Component\Translation\Dumper\YamlFileDumper;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', function () {
-    $files = File::files(resource_path('/posts'));
-    $posts = [];
-
-    //WHEN YOU SIT BACK DOWN, FINISH MODIFYING THE POSTS PAGE TO USE A $POSTS ARRAY (see yaml front matter)
-
-    foreach($files as $file){
-        $documents[] = YamlFrontMatter::parseFile($file);
-    }
-    
-
-
-    // $posts = Post::all();
     return view('posts', [
-        'posts' => $documents
+        'posts' => Post::all()
     ]);
 });
 
