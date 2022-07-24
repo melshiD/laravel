@@ -37,10 +37,16 @@ class Post{
     //WHEN YOU SIT BACK DOWN, BUILD FIND AND FILDORFAIL FUNCTIONS WITH VIDEO
 
     public static function find($slug){
-        $post = static::all()->firstWhere('slug', $slug);
-        if(! $post){
+        return static::all()->firstWhere('slug', $slug);
+    }
+
+    public static function findOrFail($slug){
+        $post = static::find($slug);
+        if(!$post){
             throw new ModelNotFoundException();
         }
-        return $post;
+        else{
+            return $post;
+        }
     }
 }

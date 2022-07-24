@@ -62,3 +62,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+//MY OWN USEFUL TAKES -Knowledge collected while learning docker and laravel
+--- the following command was helpful for CONNECTING TO MYSQL through terminal
+to go from the sail container terminal and shell to my sql, find the IP address of the 
+running database with the following command:
+$ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <name or hash of database container>
+172.21.0.5
+
+then take the ip address and use it with this command:
+mysql -h 172.21.0.5 -P 3306 --protocol=tcp -u sail -p
+give the password and you're in!
+
+to rebuild just he Mysql container, you can run this command:
+docker-compose up --build --force-recreate --no-deps [-d] [<service_name>..]
