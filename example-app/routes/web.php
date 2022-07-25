@@ -10,10 +10,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function($slug) {
+Route::get('posts/{post}', function($id) {
     return view('post', [
-        'post' => Post::findOrFail($slug)
+        'post' => Post::findOrFail($id)
     ]);
 });
-
-//WHEN YOU SIT BACK DOWN, READ ARTICLE TO FIGURE OUT HOW TO CONNECT TABLEPLUS WITH THE CONTAINERIZED DATABASE

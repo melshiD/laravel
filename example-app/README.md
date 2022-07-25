@@ -75,5 +75,11 @@ then take the ip address and use it with this command:
 mysql -h 172.21.0.5 -P 3306 --protocol=tcp -u sail -p
 give the password and you're in!
 
+(when connecting to a gui client like TablePlus, use localhost rather than the ip used for the container-container terminal)
+
 to rebuild just he Mysql container, you can run this command:
 docker-compose up --build --force-recreate --no-deps [-d] [<service_name>..]
+
+to make a migration file, get into artisan, and perform
+php artisan make:migration <bame_of_migration>
+
