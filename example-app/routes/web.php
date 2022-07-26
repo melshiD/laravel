@@ -1,5 +1,6 @@
 <?php
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
 use Symfony\Component\Translation\Dumper\YamlFileDumper;
@@ -10,8 +11,15 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function($id) {
+Route::get('posts/{post:slug}', function(Post $post) { //Post::where('slug', $post)->firstOrFail()
     return view('post', [
-        'post' => Post::findOrFail($id)
+        'post' => $post
+    ]);
+});
+
+Route::get('categories/{category}', function(Category $category) {
+    // ddd($category->posts());
+    return view('posts', [
+        'posts' => $category->posts
     ]);
 });
