@@ -3,7 +3,8 @@
         <?= $post->title ?>
     </h1>
     <p>
-        <a href="/categories/{{$post->category->id}}">{{ $post->category->name}}</a>
+        By <a href="/authors/{{$post->author->username}}">{{$post->author->username}}</a>
+         in <a href="/categories/{{$post->category->slug}}">{{ $post->category->username}}</a>
     </p>
     <div>
         <?= $post->body ?>
