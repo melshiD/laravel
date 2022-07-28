@@ -83,3 +83,18 @@ docker-compose up --build --force-recreate --no-deps [-d] [<service_name>..]
 to make a migration file, get into artisan, and perform
 php artisan make:migration <bame_of_migration>
 
+///
+
+in Laravel, when merging classes from parent to child component, see how
+class="{{$loop->iteration < 3 ? 'col-span-3' : 'col-span-2'}}" 
+is different from 
+class={{$loop->iteration < 3 ? 'col-span-3' : 'col-span-2'}}
+?  The outer quotation-marks are required, as in the first example.  Otherwise it's broken
+
+the concept of MERGING in ATTRIBUTES for css, specifically, is of importance when dealing with components
+DONT forget the space at the start of a new line of classes to be added to a class attribute list: " bg-pink-200 text-white"
+note the space before the "bg-pink-200".  Otherwise your closest class beforehand will be appended with your first class:
+"flex-1bg-pink-200 text-white" for example
+
+Can pass a name parameter to an icon file and if/then you way to consolodating all the svg icons taking up space:
+<x-icon name="down-arrow">
