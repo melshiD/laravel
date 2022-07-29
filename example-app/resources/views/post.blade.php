@@ -43,8 +43,6 @@
 
                     <div class="space-y-4 lg:text-lg leading-loose">
                         <p>{{$post->body}}</p>
-
-                        <h2 class="font-bold text-lg">Sed quia consequuntur</h2>
                     </div>
                 </div>
             </article>

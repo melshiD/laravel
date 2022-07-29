@@ -98,3 +98,5 @@ note the space before the "bg-pink-200".  Otherwise your closest class beforehan
 
 Can pass a name parameter to an icon file and if/then you way to consolodating all the svg icons taking up space:
 <x-icon name="down-arrow">
+
+request('search') request is a uesful object given to views and components from routes

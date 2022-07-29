@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
@@ -7,22 +9,9 @@ use Illuminate\Support\Facades\DB;
 use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
 use Symfony\Component\Translation\Dumper\YamlFileDumper;
 
-Route::get('/', function () {
-    DB::listen(function($query){
-        logger($query->sql, $query->bindings);
-    });
+Route::get('/', [PostController::class, 'index'])->name('home');
 
-    return view('posts', [
-        'posts' => Post::latest()->with('category', 'author')->get(),
-        'categories' => Category::all()
-    ]);
-})->name('home');
-
-Route::get('posts/{post:slug}', function(Post $post) { //Post::where('slug', $post)->firstOrFail()
-    return view('post', [
-        'post' => $post
-    ]);
-});
+Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('categories/{category:slug}', function(Category $category) {
     return view('posts', [
