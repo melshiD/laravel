@@ -22,9 +22,13 @@
 
                 @foreach($categories as $category)
                 <x-dropdown-item 
-                    href="/categories/{{$category->slug}}"
-                    :active="isset($currentCategory) && $currentCategory->is($category)"
+                    href="/?category={{$category->slug}}"
+                    :active='request()->is("categories/{$category->slug}")'
                 >
+
+                <!-- WHEN YOU SIT BACK DOWN, WHY IS THE CURRENT CATEGORY NOT BEING DISPLAYED IN THE DROPDOWN TEXT?  -->
+
+
                     {{ucwords($category->name)}}
                 </x-dropdown-item>
                 @endforeach

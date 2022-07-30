@@ -15,9 +15,6 @@ class PostController extends Controller
         ]);
     }
 
-    // WHEN YOU SIT BACK DOWN, DECIPHER THE FILTER QUERY SCOPE FUNCTIONS OF THE MODEL 
-
-
     public function show(Post $post){
         return view('post', [
             'post' => $post
