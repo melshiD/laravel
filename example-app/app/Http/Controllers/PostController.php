@@ -9,10 +9,9 @@ use App\Models\Category;
 class PostController extends Controller
 {
     public function index(){
+
         return view('posts', [
-            'posts' => Post::latest()->filter(request(['search', 'category']))->get(),
-            'categories' => Category::all(),
-            'currentCategory' => Category::where('slug', request('category'))->first()
+            'posts' => Post::latest()->filter(request(['category', 'search']))->get(),
         ]);
     }
 
