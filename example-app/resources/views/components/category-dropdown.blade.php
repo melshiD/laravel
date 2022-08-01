@@ -8,13 +8,8 @@
     </button>
   </x-slot>
   <x-dropdown-item href="/" :active="request()->routeIs('home')">All</x-dropdown-item>
-
   @foreach($categories as $category)
-  <x-dropdown-item href="/?category={{$category->slug}}" :active='request()->is("/?category={$category->slug}")'>
-
-    <!-- WHEN YOU SIT BACK DOWN, WHY IS THE CURRENT CATEGORY NOT BEING DISPLAYED IN THE DROPDOWN TEXT?  -->
-
-
+  <x-dropdown-item href="/?category={{$category->slug}}" :active='request()->fullUrlIs("*?category={$category->slug}*")'>
     {{ucwords($category->name)}}
   </x-dropdown-item>
   @endforeach

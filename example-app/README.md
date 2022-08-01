@@ -100,3 +100,8 @@ Can pass a name parameter to an icon file and if/then you way to consolodating a
 <x-icon name="down-arrow">
 
 request('search') request is a uesful object given to views and components from routes
+
+this plagued me quite badly: getting the dropdown to continue to highlight the selected category:
+  <x-dropdown-item href="/?category={{$category->slug}}" :active='request()->fullUrlIs("*?category={$category->slug}*")'>
+Although, I'm not yet sure how to solve the issue created by having a named route, but then using the 'home' route
+with a route controller that has access to all other contexts rendering 'home' somewhat useless.
