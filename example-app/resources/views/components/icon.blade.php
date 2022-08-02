@@ -9,4 +9,3 @@
     </g>
 </svg>
 @endif
-<!-- WHEN YOU SIT BACK DOWN, WATCH NEXT VIDEO  -->

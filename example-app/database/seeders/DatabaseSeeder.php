@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Category;
+use Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,10 +23,10 @@ class DatabaseSeeder extends Seeder
         // Post::truncate();
 
         $user = User::factory()->create([
-            'name' => 'John Doe'
+            'name' => 'Mark Windler'
         ]);
 
-        Post::factory(5)->create([
+        Post::factory(1)->create([
             'user_id' => $user->id
         ]);
 
